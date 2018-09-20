@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video API test</title>
+</head>
+
+<!--We need to create a style to get text appear ON TOP of video-->
+<style>
+#videocontainer {
+  position:relative;
+}
+#videocontainer video {
+  position:relative;
+  z-index:0;
+}
+#videocontainer div, #videocontainer video {
+  position: absolute;
+  top: 0;
+  font-size: 20px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+</style>
+
+<body>
+  
+<div class="container" id="videocontainer">
+  <video width="100%" autoplay loop controls>
+    <source src="speedboat_video.mp4" type="video/mp4"> <!--Video copyright © Riku Vakkuri. All rights reserved--> 
+    Your browser does not support mp4 <code>video</code> format.
+  </video>
+  <div class="overlay">
+    <p>Traveling from Gili Air towards Lombok by speedboat. December 2016</p>
+  </div>
+</div>
+
+<script>
+  var video;
+      window.addEventListener('load', init, false);
+  //    window.addEventListener('click', playPause, false);
+  function playPause() {
+    if(video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }
+  function init() {
+    video = document.getElementsByTagName('video')[0];
+    video.play();
+  }
+</script>
+</body>
+</html>
